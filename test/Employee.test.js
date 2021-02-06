@@ -12,7 +12,7 @@ describe("Employee", () => {
         expect("position" in employee).toEqual(true);
         expect("salary" in employee).toEqual(true);
         expect("id" in employee).toEqual(true);
-        // expect("email" in employee).toEqual(true);
+        expect("email" in employee).toEqual(true);
     });
     
     it("should have an id assigned when they are created", () => {
