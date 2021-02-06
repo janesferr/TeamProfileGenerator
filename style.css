@@ -6,7 +6,7 @@
 
 }
 .list-group{
-    padding: 10%;
+    padding: 6%;
     background-color: rgb(246,247,249);
 }
 header{
@@ -22,12 +22,12 @@ header{
   * {
     box-sizing: border-box;
   }
-  /* .card{
-      height: 100%;
-  }
-   */
+  
   body {
     font-family: Arial, Helvetica, sans-serif;
+  }
+  .card{
+      box-shadow: 5px 10px lightgrey;
   }
   
 
