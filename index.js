@@ -179,7 +179,7 @@ function renderPage(member) {
 
       <ul class="list-group">
           <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item">Email: {email}/li>
+          <li class="list-group-item">Email: ${email}</li>
           <li class="list-group-item">Office number:  ${office_number}</li>
           
       </ul>
