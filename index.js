@@ -168,48 +168,63 @@ function renderPage(member) {
 
     if (role === "Manager") {
       const office_number = member.getOfficeNumber();
-      page = `
-      <div class="col-6">
-      <div class="card mx-auto mb-3" style="width: 18rem">
-      <h5 class="card-header">${name}<br /><br />${role}</h5>
-      <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: ${id}</li>
-      <li class="list-group-item">Email: ${email}</li>
-      <li class="list-group-item">Office number: ${office_number}</li>
-      
-  </ul>
-  </div>
-  </div>`;
+      page = 
+  `<div class="col mb-4">
+  <div class="card h-100">
 
+      <header>
+          <h3 id="name">${name}</h3><i class="fa fa-coffee"></i>
+          <h3 id="position">${role}</h3>
+      </header>
+
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${id}</li>
+          <li class="list-group-item">Email: {email}/li>
+          <li class="list-group-item">Office number:  ${office_number}</li>
+          
+      </ul>
+  </div>
+</div>`
+  ;
     }
     else if (role === "Engineer") {
       const gitHub = member.getGithub();
-      page = `<div class="col-6">
-      <div class="card mx-auto mb-3" style="width: 18rem">
-      <h5 class="card-header">${name}<br /><br />${role}</h5>
-      <ul class="list-group list-group-flush">
+      page = `
+      <div class="col mb-4">
+  <div class="card h-100">
+
+      <header>
+          <h3 id="name">${name}</h3><i class="fa fa-coffee"></i>
+          <h3 id="position">${role}</h3>
+      </header>
+
+      <ul class="list-group">
           <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item">Email Address: ${email}</li>
+          <li class="list-group-item">Email Address: ${email}/li>
           <li class="list-group-item">GitHub: ${gitHub}</li>
+          
       </ul>
-      </div>
-  </div>`;
-      // engineerPage = page.replace("{Engineer Template}", engineerTemplate);
-      // fs.writeFileSync("./dist/index.html", engineerPage)
+  </div>
+</div>`;     
     }
     else if (role === "Intern") {
       const school = member.getSchool();
-      page = `
-      <div class="col-6">
-      <div class="card mx-auto mb-3" style="width: 18rem">
-      <h5 class="card-header">${name}<br /><br />${role}</h5>
-      <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item">Email Address: ${email}</li>
-          <li class="list-group-item">School: ${school}</li>
-      </ul>
+      page = `<div class="col mb-4">
+      <div class="card h-100">
+    
+          <header>
+              <h3 id="name">${name}</h3><i class="fa fa-coffee"></i>
+              <h3 id="position">${role}</h3>
+          </header>
+    
+          <ul class="list-group">
+              <li class="list-group-item">ID: ${id}</li>
+              <li class="list-group-item">Email Address: ${email}/li>
+              <li class="list-group-item">School: ${school}</li>
+              
+          </ul>
       </div>
-  </div>`;
+    </div>`;
     }
     else if(role === "I'm finish building my team.") {
       page = `</div> </div></body>
