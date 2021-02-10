@@ -49,7 +49,7 @@ function getMembers() {
         type: 'list',
         message: "Which type of team member would you like to add?",
         name: 'role',
-        choices: ["Manager", "Engineer", "Intern", "I'm finish building my team."],
+        choices: ["Manager", "Engineer", "Intern"],
          validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
         
       }, 
@@ -107,17 +107,12 @@ function getMembers() {
         newMember = new Intern(name, id, email, roleInfo);
         roleInfo = "School name";
       }
-      else if (role === "I'm finish building my team.") {
-        console.log("We are finish building your team.");
-      }
       else {
         console.log("I don't understand you!!!");
       }
       if (moreMembers === "yes") {
         getMembers();
         employee.push(newMember);
-        // console.log("This is my employee dump" + employee);
-        renderPage(newMember)
       }
       else {
         console.log("Thank you for building your team.");
@@ -171,17 +166,14 @@ function renderPage(member) {
       page = 
   `<div class="col mb-4">
   <div class="card h-100">
-
       <header>
           <h3 id="name">${name}</h3><i class="fa fa-coffee"></i>
           <h3 id="position">${role}</h3>
       </header>
-
       <ul class="list-group">
           <li class="list-group-item">ID: ${id}</li>
           <li class="list-group-item">Email: ${email}</li>
           <li class="list-group-item">Office number:  ${office_number}</li>
-          
       </ul>
   </div>
 </div>`
@@ -192,17 +184,14 @@ function renderPage(member) {
       page = `
       <div class="col mb-4">
   <div class="card h-100">
-
       <header>
           <h3 id="name">${name}</h3><i class="fa fa-coffee"></i>
           <h3 id="position">${role}</h3>
       </header>
-
       <ul class="list-group">
           <li class="list-group-item">ID: ${id}</li>
           <li class="list-group-item">Email Address: ${email}</li>
-          <li class="list-group-item">GitHub: ${gitHub}</li>
-          
+          <li class="list-group-item">GitHub: ${gitHub}</li>         
       </ul>
   </div>
 </div>`;     
@@ -210,30 +199,25 @@ function renderPage(member) {
     else if (role === "Intern") {
       const school = member.getSchool();
       page = `<div class="col mb-4">
-      <div class="card h-100">
-    
+      <div class="card h-100">   
           <header>
               <h3 id="name">${name}</h3><i class="fa fa-coffee"></i>
               <h3 id="position">${role}</h3>
-          </header>
-    
+          </header>    
           <ul class="list-group">
               <li class="list-group-item">ID: ${id}</li>
               <li class="list-group-item">Email Address: ${email}</li>
-              <li class="list-group-item">School: ${school}</li>
-              
+              <li class="list-group-item">School: ${school}</li>              
           </ul>
       </div>
     </div>`;
     }
-    else if(role === "I'm finish building my team.") {
+    else {
       page = `</div> </div></body>
       </html>`;
 
     }
-    else{
-      console.log("No teams added");
-    }
+   
     fs.appendFileSync("./dist/index.html", page)
   });
 }
