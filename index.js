@@ -1,11 +1,11 @@
 // DEPENDENCIES
 const fs = require("fs");
 const inquirer = require("inquirer");
-// const emoji = require("emoj");
+// const emoji = require("emoji");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
-const Employee = require("./lib/Employee")
+// const Employee = require("./lib/Employee")
 
 const employee = [];
 
@@ -13,7 +13,7 @@ const employee = [];
 // Register the prompt with inquirer:
 
 // inquirer.registerPrompt('emoji', require('inquirer-emoji'))
-// Call the prompt:
+// // Call the prompt:
 
 // const Emoji = () => {
 //   return inquirer.prompt([
@@ -24,107 +24,22 @@ const employee = [];
 //     }
 //   ]);
 // }
+// Emoji();
 
 // const path = './dist/index.html'
 
-// // TODO: Create a function to initialize app
+// // // TODO: Create a function to initialize app
 // function init() {
-//     try {
-//         fs.unlinkSync(path)
-//         //file removed
-//     } catch (err) {
-//         console.error(err)
-//     }
+//   try {
+//     fs.unlinkSync(path)
+//     //file removed
+//   } catch (err) {
+//     console.error(err)
+//   }
 
 // }
 
-// // Function call to initialize app
-// init();
-
-
-function getMembers() {
-  inquirer
-    .prompt([
-      {
-        type: 'list',
-        message: "Which type of team member would you like to add?",
-        name: 'role',
-        choices: ["Manager", "Engineer", "Intern"],
-         validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
-        
-      }, 
-      {
-        type: "input",
-        name: "name",
-        message: `What is your team's name? `,
-        validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
-
-      },
-      {
-        type: 'input',
-        message: `What is the team's id?`,
-        name: 'id',
-        validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
-      },
-      {
-        type: 'input',
-        message: "What is the team's email?",
-        name: "email",
-        validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
-
-      }])
-      .then(function({name, role, id, email}) {
-        let roleInfo = "";
-        if (role === "Engineer") {
-            roleInfo = "GitHub username";
-        } else if (role === "Intern") {
-            roleInfo = "school name";
-        } else {
-            roleInfo = "office phone number";
-        }
-        inquirer.prompt([{
-            message: `Enter team member's ${roleInfo}`,
-            name: "roleInfo"
-        },
-        {
-            type: "list",
-            message: "Would you like to add more team members?",
-            choices: [
-                "yes",
-                "no"
-            ],
-            name: "moreMembers"
-        }])
-    .then(function ({ roleInfo, moreMembers }) {
-      let newMember;
-      if (role === "Manager") {
-        newMember = new Manager(name, id, email, roleInfo);
-      }
-      else if (role === "Engineer") {
-        newMember = new Engineer(name, id, email, roleInfo);
-      }
-      else if (role === "Intern") {   
-        newMember = new Intern(name, id, email, roleInfo);
-        roleInfo = "School name";
-      }
-      else {
-        console.log("I don't understand you!!!");
-      }
-      if (moreMembers === "yes") {
-        getMembers();
-        employee.push(newMember);
-      }
-      else {
-        console.log("Thank you for building your team.");
-      }
-      employee.push(newMember);
-      renderPage(newMember)
-
-    });
-});
-}
-
-function startingHtml(){
+function startingHtml() {
   const page = `<!DOCTYPE html>
 <html lang="en">
 
@@ -149,11 +64,91 @@ function startingHtml(){
     <h1 class="title">My Team</h1>
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3">`
-        fs.writeFileSync("./dist/index.html", page);
+  fs.writeFileSync("./dist/index.html", page);
 }
-startingHtml();
 
-function renderPage(member) {
+function getMembers() {
+  inquirer
+    .prompt([
+      {
+        type: 'list',
+        message: "Which type of team member would you like to add?",
+        name: 'role',
+        choices: ["Manager", "Engineer", "Intern"],
+        validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
+
+      },
+      {
+        type: "input",
+        name: "name",
+        message: `What is your team's name? `,
+        validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
+
+      },
+      {
+        type: 'input',
+        message: `What is the team's id?`,
+        name: 'id',
+        validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
+      },
+      {
+        type: 'input',
+        message: "What is the team's email?",
+        name: "email",
+        validate: (value) => { if (value) { return true } else { return " I need a value to continue" } },
+
+      }])
+    .then(function ({ name, role, id, email }) {
+      let roleInfo = "";
+      if (role === "Engineer") {
+        roleInfo = "GitHub username";
+      } else if (role === "Intern") {
+        roleInfo = "school name";
+      } else {
+        roleInfo = "office phone number";
+      }
+      inquirer.prompt([{
+        message: `Enter team member's ${roleInfo}`,
+        name: "roleInfo"
+      },
+      {
+        type: "list",
+        message: "Would you like to add more team members?",
+        choices: [
+          "yes",
+          "no"
+        ],
+        name: "moreMembers"
+      }])
+        .then(function ({ roleInfo, moreMembers }) {
+          let newMember;
+          if (role === "Manager") {
+            newMember = new Manager(name, id, email, roleInfo);
+          }
+          else if (role === "Engineer") {
+            newMember = new Engineer(name, id, email, roleInfo);
+          }
+          else if (role === "Intern") {
+            newMember = new Intern(name, id, email, roleInfo);
+            roleInfo = "School name";
+          }
+          else {
+            console.log("I don't understand you!!!");
+          }
+          if (moreMembers === "yes") {
+            getMembers();
+          }
+          else {
+            console.log("Thank you for building your team.");
+          }
+          employee.push(newMember);
+          renderPage(newMember, moreMembers);
+
+        });
+    });
+}
+
+function renderPage(member, moreMembers) {
   return new Promise(function () {
     const name = member.getName();
     const role = member.getRole();
@@ -163,8 +158,8 @@ function renderPage(member) {
 
     if (role === "Manager") {
       const office_number = member.getOfficeNumber();
-      page = 
-  `<div class="col mb-4">
+      page =
+        `<div class="col mb-4">
   <div class="card h-100">
       <header>
           <h3 id="name">${name}</h3><i class="fa fa-coffee"></i>
@@ -177,7 +172,7 @@ function renderPage(member) {
       </ul>
   </div>
 </div>`
-  ;
+        ;
     }
     else if (role === "Engineer") {
       const gitHub = member.getGithub();
@@ -194,7 +189,7 @@ function renderPage(member) {
           <li class="list-group-item">GitHub: ${gitHub}</li>         
       </ul>
   </div>
-</div>`;     
+</div>`;
     }
     else if (role === "Intern") {
       const school = member.getSchool();
@@ -212,13 +207,25 @@ function renderPage(member) {
       </div>
     </div>`;
     }
-    else {
-      page = `</div> </div></body>
-      </html>`;
 
-    }
-   
     fs.appendFileSync("./dist/index.html", page)
+
+    if (moreMembers === "no") {
+      endCode();
+    }
   });
 }
+
+function endCode() {
+  page = `</div> 
+           </div>
+           </body>
+      </html>`;
+  fs.appendFileSync("./dist/index.html", page)
+}
+
+// Function call to initialize app
+// init();
+
+startingHtml();
 getMembers();
