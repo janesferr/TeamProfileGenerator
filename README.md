@@ -36,7 +36,7 @@ THEN I exit the application, and the HTML is generated
 
 The following image shows a mock-up of the generated HTML’s appearance and functionality:
 
-![HTML webpage titled “My Team” features 2 boxes listing employee names, titles, and other key info.](./dist/images/screenshotindex.png)
+![image of working application](./dist/images/screenshotindex.png?raw=true "Title")
 
 ## Applicaiton information:
 
