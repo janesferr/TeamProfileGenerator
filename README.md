@@ -112,7 +112,7 @@ Added validation to ensure that user input is in the proper format.
 
 ### Walkthrough Video:
 
-[![link to the youtube](https://www.youtube.com/watch?v=owQc1r8e4DE&feature=youtu.be)
+* Uses this youtube video: (https://www.youtube.com/watch?v=owQc1r8e4DE&feature=youtu.be)
 
 
 ### Technical Acceptance Criteria: 40%
