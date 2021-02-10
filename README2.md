@@ -12,7 +12,7 @@ I WANT to generate a webpage that displays my team's basic info
 SO THAT I have quick access to their emails and GitHub profiles
 ```
 
-## What this applicaiton does:
+## What this application does:
 GIVEN a command-line application that accepts user input
 WHEN I am prompted for my team members and their information
 THEN an HTML file is generated that displays a nicely formatted team roster based on user input
@@ -102,30 +102,17 @@ In addition to `Employee`'s properties and methods, `Intern` will also have the 
 
 * `getRole()`&mdash;overridden to return `'Intern'`
 
-Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
+Added validation to ensure that user input is in the proper format.
 
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Deliverables: 15%
 
 * A sample HTML file generated using the application must be submitted.
 
 * Your GitHub repository containing your application code.
 
 
-### Walkthrough Video: 32%
+### Walkthrough Video:
 
-* A walkthrough video that demonstrates the functionality of the Team Profile Generator and passing tests must be submitted, and a link to the video should be included in your README file.
-
-* The walkthrough video must show all four tests passing from the command line.
-
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated HTML file that matches the user input.
+[![link to the youtube](https://www.youtube.com/watch?v=owQc1r8e4DE&feature=youtu.be)
 
 
 ### Technical Acceptance Criteria: 40%
@@ -138,27 +125,4 @@ This homework is graded based on the following criteria:
 
   * The application must have `Employee`, `Manager`, `Engineer`, and `Intern` classes.
 
-### Repository Quality: 13%
 
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* A sample HTML file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
