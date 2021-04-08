@@ -119,6 +119,6 @@ Added validation to ensure that user input is in the proper format.
 
 	* Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
 
-  * The application must have `Employee`, `Manager`, `Engineer`, and `Intern` classes.
+  * The application has `Employee`, `Manager`, `Engineer`, and `Intern` classes.
 
 
