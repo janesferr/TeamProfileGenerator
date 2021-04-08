@@ -32,11 +32,7 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 
 
-## Mock-Up
 
-The following image shows a mock-up of the generated HTML’s appearance and functionality:
-
-![image of working application](dist/images/screenshotindex.png)
 
 ## Applicaiton information:
 
